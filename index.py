@@ -7,16 +7,6 @@ def print_pause(print_message):
 
 tools = ["consistency", "time management", "a mentor", "patience", "confidence"]
 random_tool = random.choice(tools)
-# def valid_input(prompt, option1, option2):
-#     while True:
-#         response = input(prompt)
-#         if response == option1:
-#             break
-#         elif response == option2:
-#             break
-#         else: 
-#             print_pause("* Please enter 1 or 2. *")
-#     return response
 
 def intro():
     print_pause("You find yourself in a season of transition. ")
@@ -33,6 +23,7 @@ def tech_journey(user_tools):
         print_pause("That's okay. Maybe now isn't the right time for you.")
     elif user_choice == '2':
         print_pause("Congrats! You have made the brave decision to journey into tech.")
+        user_tools.append("courage")
         print_pause(f"To assist you on your journey you are gifted with {random_tool}!")
         user_tools.append(random_tool)
         learning_path(user_tools)
@@ -70,7 +61,7 @@ def self_taught(user_tools):
         job_search(user_tools)
     else:
         print_pause("You might need another tool to assist you.")
-    power_up(user_tools)
+        power_up(user_tools)
     job_search(user_tools)
     end_game(user_tools)
 
@@ -88,24 +79,39 @@ def bootcamp(user_tools):
         job_search(user_tools)
     else:
         print_pause("You might need another tool to assist you.")
-    power_up(user_tools)
+        power_up(user_tools)
     job_search(user_tools)
-
-def job_search(user_tools):
-    print_pause("Thanks to your consistency you are now ready to begin the job search.")
-    list = ' '.join(user_tools)
-    print_pause(f"You are currently equipped with {list}.")
-    power_up(user_tools)
     end_game(user_tools)
 
-def end_game(user_tools):
-    if len(user_tools) == 2:
-        list = ' '.join(user_tools)
-        print_pause(f"Now that you have acquired these tools: {list}.")
-        print_pause("You have everything you need to land that first Software Engineering role!")
+def job_search(user_tools):
+    print_pause("You are now ready to begin the job search.")
+    list = ' '.join(user_tools)
+    print_pause(f"You are currently equipped with {list}.")
+    print_pause("After a month of submitting applicatiosn you are experiencing imposter syndrome. ")
+    print_pause("You can fight this with one of your tools!")
+    weapon = input(f"Which tool would you like to use: {list} >> ")
+    if weapon in list:
+        print_pause("Congratulations! You have defeated imposter syndrome.")
+        end_game(user_tools)
     else:
-        power_up(user_tools)
+        print_pause("You do not have the correct tool.")
 
+def end_game(user_tools):
+    if len(user_tools) >= 2:
+        list = ' '.join(user_tools)
+        print_pause(f"Equipped with {list}. You now have everything you need to land that first Software Engineering role!")
+    else:
+        restart()
+
+def restart():
+    play_again = input("Would you like to play the game again? Y or N > ").lower()
+    if play_again == 'y':
+        play_game()
+    elif play_again == 'n':
+        print_pause("Thank you for playing. Goodbye!")
+    else:
+        print_pause("Please enter either 'y' or 'n' > ")
+    
     
 def play_game():
     user_tools = []
@@ -113,3 +119,10 @@ def play_game():
     tech_journey(user_tools)
 
 play_game()
+
+# Need to be able to break out of game
+# Validate input
+# you are faced with imposter syndrome "must acquire 'confidence'"
+# Display Game Won message and ask if they want to play again
+# Styling?
+# Run Pycodestyle
