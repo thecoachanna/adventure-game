@@ -120,9 +120,4 @@ def play_game():
 
 play_game()
 
-# Need to be able to break out of game
-# Validate input
-# you are faced with imposter syndrome "must acquire 'confidence'"
-# Display Game Won message and ask if they want to play again
-# Styling?
-# Run Pycodestyle
+# Game should end when user_tools >= 2
