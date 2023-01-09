@@ -54,7 +54,7 @@ def beach(tool, obstacle):
         restart()
     else:
         print_pause(f"Your small hatchet has left you helpless and you paddle quickly back to the beach!")
-        treasure_hunt(tool, obstacle)
+    treasure_hunt(tool, obstacle)
 
 def restart():
     user_choice = valid_input("Would you like to play the game again? Y or N > ", 'y', 'n').lower()

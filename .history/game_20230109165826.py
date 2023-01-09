@@ -6,7 +6,7 @@ tools = ["small hatchet", "magical sword"]
 
 def print_pause(print_message):
     print(print_message)
-    time.sleep(0)
+    time.sleep(2)
 
 def valid_input(prompt, option1, option2):
     while True:
@@ -31,12 +31,12 @@ def treasure_hunt(tool, obstacle):
         beach(tool, obstacle)
     
 def mountain(tool, obstacle):
-    if tool == tools[0]:
+    if (tool == tools[0]):
         print_pause("You begin to journey up the mountain. Using your small hatchet to clear your path.")
         print_pause("You suddenly spot a shimmer of gold.")
         print_pause("It is not the buried treasure...\nbut a magical sword!")
         print_pause("You head back to the beach with your new sword.")
-        tool = tools[1]
+        tool = [1]
     else:
         print_pause("You've already been down this path and have retrieved all of the necessary tools.")
         print_pause("You head back to the beach.")
@@ -54,7 +54,7 @@ def beach(tool, obstacle):
         restart()
     else:
         print_pause(f"Your small hatchet has left you helpless and you paddle quickly back to the beach!")
-        treasure_hunt(tool, obstacle)
+    treasure_hunt(tool, obstacle)
 
 def restart():
     user_choice = valid_input("Would you like to play the game again? Y or N > ", 'y', 'n').lower()
